@@ -14,12 +14,12 @@ class GuestsController < ApplicationController
     @episodes = Episode.all
   end
 
-  def update
-    byebug
-    @guest = Guest.find(params[:id])
-    params[:episodes].each {|episode| @appearance = Appearance.new(episode_id: episode.id, guest_id: @guest.id)
-      redirect_to new_appearance_path(@appearance)
-    redirect_to guest_path(@guest)
-  end
+  # def update
+  #   byebug
+  #   @guest = Guest.find(params[:id])
+  #   params[:episodes].each {|episode| @appearance = Appearance.new(episode_id: episode.id, guest_id: @guest.id)
+  #     redirect_to new_appearance_path(@appearance)}
+  #   redirect_to guest_path(@guest)
+  # end
 
 end
