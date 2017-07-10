@@ -1,0 +1,22 @@
+<%= form_for @guest do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br /><br />
+<%= f.label :occupation %>
+<%= f.text_field :occupation %>
+<br /><br />
+
+  <legend>Appearances:</legend>
+
+  <% @episodes.each do |episode| %>
+  <p>
+    <% checked = @guest.episode_checked?(episode) %>
+    <label><input type="checkbox" name="episodes[]" value = "<%= episode.id %>" <%= checked %> > <%= "Episode #{episode.number} - #{episode.date.strftime("%B %d, %Y")}" %></label>
+  </p>
+  <% end %>
+  </fieldset>
+
+<%= f.submit %>
+
+<% end %>
